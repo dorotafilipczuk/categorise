@@ -67,10 +67,3 @@ var getData = function(callMe) {
 		}
 	});
 }
-
-var dataDump;
-var printData = function(data) {
-	dataDump.append(JSON.stringify(data));
-}
-
-
