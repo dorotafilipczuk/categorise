@@ -16,8 +16,15 @@ $(document).ready(function() {
 		var rawAmount = dataDump.amount;
 		var amount = Math.abs(rawAmount);
 
+		try {
+		    var emoji = dataDump.merchant.emoji;
+		}
+		catch(err) {
+		    var emoji = '';
+		}
+
 		if (rawAmount < 0) {
-			var name = dataDump.merchant.name + dataDump.merchant.emoji
+			var name = dataDump.merchant.name;
 			var type = 'outflow';
 		} else {
 			var name = dataDump.description;
@@ -43,6 +50,7 @@ $(document).ready(function() {
 		var push = 
 		'<tr class="'+type+'">\
 			<td>' + name + '</td>\
+			<td>' + emoji + '</td>\
 			<td>' + amount + '</td>\
 			<td>' + date + '</td>\
 			<td>' + guessedCategory + '</td>\
